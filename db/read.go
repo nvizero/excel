@@ -36,7 +36,6 @@ func Read() {
 			usd, _ := strconv.ParseFloat(row[7], 64)
 			hk, _ := strconv.ParseFloat(row[8], 64)
 
-			util.Info(row[1])
 			updateDate, err := parseDate(row[10])
 			if err != nil {
 				log.Fatal(err)
@@ -57,6 +56,7 @@ func Read() {
 				Contact:     row[12],
 				Supplier:    row[13],
 			}
+			util.Info(row[0], row[1])
 			finsert, err := GetPartByPartsNumberBrandQty(row[0], row[1], row[13])
 			if err != nil {
 				log.Fatal(err)
