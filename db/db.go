@@ -1,4 +1,4 @@
-package main
+package db
 
 import (
 	"database/sql"
@@ -51,7 +51,7 @@ type Part struct {
 	Supplier    string
 }
 
-func getPartByPartsNumberBrandQty(partsNumber, brand string, supplier string) (*Part, error) {
+func GetPartByPartsNumberBrandQty(partsNumber, brand string, supplier string) (*Part, error) {
 	db, err := conn()
 	if err != nil {
 		log.Fatal(err)
@@ -82,7 +82,7 @@ func getPartByPartsNumberBrandQty(partsNumber, brand string, supplier string) (*
 	return &part, nil
 }
 
-func updateData(part Part, id int) {
+func UpdateData(part Part, id int) {
 	db, err := conn()
 	if err != nil {
 		log.Fatal(err)
@@ -96,7 +96,7 @@ func updateData(part Part, id int) {
 	}
 
 }
-func insertData(part Part) {
+func InsertData(part Part) {
 	db, err := conn()
 	if err != nil {
 		log.Fatal(err)
@@ -114,7 +114,7 @@ func insertData(part Part) {
 }
 
 // 讀
-func readdb() {
+func Readdb() {
 	db, err := conn()
 	if err != nil {
 		log.Fatal(err)

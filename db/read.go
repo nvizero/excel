@@ -1,4 +1,4 @@
-package main
+package db
 
 import (
 	"database/sql"
@@ -11,7 +11,7 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
-func read() {
+func Read() {
 	f, err := excelize.OpenFile("aa1.xlsx")
 	if err != nil {
 		fmt.Println(err)
@@ -57,16 +57,16 @@ func read() {
 				Contact:     row[12],
 				Supplier:    row[13],
 			}
-			finsert, err := getPartByPartsNumberBrandQty(row[0], row[1], row[13])
+			finsert, err := GetPartByPartsNumberBrandQty(row[0], row[1], row[13])
 			if err != nil {
 				log.Fatal(err)
 			}
 			if finsert == nil {
-				insertData(part)
+				InsertData(part)
 			} else {
 				if finsert.Qty != qty {
 					fmt.Println("Part already exists:", finsert)
-					updateData(part, finsert.id)
+					UpdateData(part, finsert.id)
 				}
 			}
 

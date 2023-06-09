@@ -1,13 +1,14 @@
 package main
 
 import (
+	"excl/db"
 	"fmt"
 
 	"github.com/xuri/excelize/v2"
 )
 
 func main() {
-	read()
+	db.Read()
 }
 
 func write() {
