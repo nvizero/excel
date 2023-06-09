@@ -5,3 +5,4 @@ util/go.sum
 go.mod
 go.sum
 logs/
+.env
