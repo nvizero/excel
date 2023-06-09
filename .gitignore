@@ -4,3 +4,4 @@ util/go.mod
 util/go.sum
 go.mod
 go.sum
+logs/
