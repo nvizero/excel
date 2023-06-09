@@ -2,12 +2,11 @@ package main
 
 import (
 	"database/sql"
+	"excl/util"
 	"fmt"
 	"log"
 	"strconv"
 	"time"
-
-	"./util"
 
 	"github.com/xuri/excelize/v2"
 )
@@ -37,11 +36,11 @@ func read() {
 			usd, _ := strconv.ParseFloat(row[7], 64)
 			hk, _ := strconv.ParseFloat(row[8], 64)
 
+			util.Info(row[1])
 			updateDate, err := parseDate(row[10])
 			if err != nil {
 				log.Fatal(err)
 			}
-
 			part := Part{
 				PartsNumber: row[0],
 				Brand:       row[1],
@@ -62,7 +61,6 @@ func read() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			util.Info(row[0])
 			if finsert == nil {
 				insertData(part)
 			} else {

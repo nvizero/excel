@@ -104,10 +104,10 @@ func insertData(part Part) {
 	defer db.Close()
 
 	// 執行 INSERT 陳述式
-	_, err = db.Exec("INSERT INTO parts (PARTSNUMBER, BRAND, DESCRIPTION, DATECODE, LEADTIME, QTY, NT, USD, HK, PACKA, UPDATE_DATE, TELEPHONE, CONTACT, SUPPLIER) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+	_, err = db.Exec("INSERT INTO parts (`PartsNumber`, `Brand`, `Description`, `DateCode`, `LeadTime`, `Qty`, `Nt`, `Usd`, `Hk`, `Packa`, `Update`, `Telephone`, `Contact`, `Supplier`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
 		part.PartsNumber, part.Brand, part.Description, part.DateCode, part.LeadTime, part.Qty, part.Nt, part.Usd, part.Hk, part.Packa, part.UpdateDate, part.Telephone, part.Contact, part.Supplier)
 	if err != nil {
-
+		fmt.Println("qweqwe", err)
 		log.Fatal(err)
 	}
 
